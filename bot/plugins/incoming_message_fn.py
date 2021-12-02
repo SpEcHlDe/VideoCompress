@@ -445,8 +445,12 @@ async def incoming_cancel_message_f(bot, update):
     status = DOWNLOAD_LOCATION + "/status.json"
     if os.path.exists(status):
         inline_keyboard = []
-        ikeyboard = []
-        ikeyboard.append(InlineKeyboardButton("Yes 🚫", callback_data=("fuckingdo").encode("UTF-8")))
+        ikeyboard = [
+            InlineKeyboardButton(
+                "Yes 🚫", callback_data=("fuckingdo").encode("UTF-8")
+            )
+        ]
+
         ikeyboard.append(InlineKeyboardButton("No 🤗", callback_data=("fuckoff").encode("UTF-8")))
         inline_keyboard.append(ikeyboard)
         reply_markup = InlineKeyboardMarkup(inline_keyboard)
